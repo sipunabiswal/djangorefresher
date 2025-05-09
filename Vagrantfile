@@ -17,6 +17,8 @@ Vagrant.configure("2") do |config|
 
  config.vm.network "forwarded_port", guest: 8000, host: 8000
 
+ config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+
  config.vm.provision "shell", inline: <<-SHELL
    systemctl disable apt-daily.service
    systemctl disable apt-daily.timer
